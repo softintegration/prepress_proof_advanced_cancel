@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?><odoo>
+  <data>
+
+
+      <record id="view_prepress_proof_form_inherited" model="ir.ui.view">
+          <field name="name">view.prepress.proof.form.inherited</field>
+          <field name="model">prepress.proof</field>
+          <field name="inherit_id" ref="prepress_management.view_prepress_proof_form"/>
+          <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_reset_from_quarantine']" position="after">
+                    <button name="action_start_cancel" type="object" states="validated,flashed" string="Start cancel"
+                                data-hotkey="a"/>
+                </xpath>
+                <xpath expr="//button[@name='action_cancel_with_motif']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+          </field>
+      </record>
+
+      <record id="view_prepress_proof_search_inherited" model="ir.ui.view">
+          <field name="name">view.prepress.proof.search.inherited</field>
+          <field name="model">prepress.proof</field>
+          <field name="inherit_id" ref="prepress_management.view_prepress_proof_search"/>
+          <field name="arch" type="xml">
+                <xpath expr="//filter[@name='cancelled']" position="before">
+                    <filter name="pending_cancel" string="Pending cancel" domain="[('state','=','pending_cancel')]" help="Pending cancel Proofs"/>
+                </xpath>
+          </field>
+      </record>
+
+
+
+  </data>
+</odoo>

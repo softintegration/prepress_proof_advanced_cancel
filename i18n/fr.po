@@ -1,0 +1,42 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* prepress_proof_advanced_cancel
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-20 10:37+0000\n"
+"PO-Revision-Date: 2023-07-20 10:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: prepress_proof_advanced_cancel
+#: model:ir.model.fields.selection,name:prepress_proof_advanced_cancel.selection__prepress_proof__state__pending_cancel
+#: model_terms:ir.ui.view,arch_db:prepress_proof_advanced_cancel.view_prepress_proof_search_inherited
+msgid "Pending cancel"
+msgstr "En cours d'annulation"
+
+#. module: prepress_proof_advanced_cancel
+#: model_terms:ir.ui.view,arch_db:prepress_proof_advanced_cancel.view_prepress_proof_search_inherited
+msgid "Pending cancel Proofs"
+msgstr "BAT en cours d'annulation"
+
+#. module: prepress_proof_advanced_cancel
+#: model:ir.model,name:prepress_proof_advanced_cancel.model_prepress_proof
+msgid "Prepress proof"
+msgstr "BAT"
+
+#. module: prepress_proof_advanced_cancel
+#: model_terms:ir.ui.view,arch_db:prepress_proof_advanced_cancel.view_prepress_proof_form_inherited
+msgid "Start cancel"
+msgstr "Lancer l'annulation"
+
+#. module: prepress_proof_advanced_cancel
+#: model:ir.model.fields,field_description:prepress_proof_advanced_cancel.field_prepress_proof__state
+msgid "Status"
+msgstr "Statut"
