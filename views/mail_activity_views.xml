@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?><odoo>
+  <data>
+
+
+        <!-- Prepress proof Tree View -->
+        <record id="view_cancel_mail_activity_tree" model="ir.ui.view">
+            <field name="name">view.cancel.mail.activity.tree</field>
+            <field name="model">mail.activity</field>
+            <field name="arch" type="xml">
+                <tree string="Cancel activities" editable="bottom">
+                    <field name="summary"/>
+                    <field name="note"/>
+                    <field name="date_deadline"/>
+                    <field name="user_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+  </data>
+</odoo>
