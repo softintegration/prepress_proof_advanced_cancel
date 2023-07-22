@@ -16,6 +16,22 @@ class PrepressProof(models.Model):
     cancel_activities_done = fields.Integer(string='Number of done cancel activities',
                                             help='This is the number of all done activities including deleted/canceled ones')
 
+
+    def action_cancel_with_motif(self):
+        self._check_cancel_activities()
+        return super(PrepressProof,self.with_context(default_cancel_motif_id=self.cancel_motif_id.id,
+                                                     default_display_cancel_motif_id=False)).action_cancel_with_motif()
+        #return super(PrepressProof, self.with_context(default_required_cancel_motif_id=False,
+        #                                              default_display_cancel_motif_id=False)).action_cancel_with_motif()
+
+    def _check_cancel_activities(self):
+        for each in self:
+            if not each.cancel_activities_planned:
+                raise ValidationError(_("No planned activities has been detected,can not cancel Prepress proof [%s]")%each.name)
+            if each.cancel_activities_planned != each.cancel_activities_done:
+                raise ValidationError(_("All cancel activities must be done!"))
+
+
     def _compute_cancel_activities_count(self):
         for each in self:
             each.cancel_activities_count = len(each._get_cancel_activities())

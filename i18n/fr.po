@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-20 17:02+0000\n"
-"PO-Revision-Date: 2023-07-20 17:02+0000\n"
+"POT-Creation-Date: 2023-07-22 13:28+0000\n"
+"PO-Revision-Date: 2023-07-22 13:28+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -37,6 +37,12 @@ msgid "Activity"
 msgstr "Activité"
 
 #. module: prepress_proof_advanced_cancel
+#: code:addons/prepress_proof_advanced_cancel/models/prepress_proof.py:0
+#, python-format
+msgid "All cancel activities must be done!"
+msgstr "Toutes les activités d’annulation doivent être faites"
+
+#. module: prepress_proof_advanced_cancel
 #: model:ir.model.fields,field_description:prepress_proof_advanced_cancel.field_prepress_proof__cancel_activities_count
 msgid "Cancel Activities Count"
 msgstr ""
@@ -52,6 +58,13 @@ msgstr "Activités d'annulation"
 #: model:ir.model.fields,field_description:prepress_proof_advanced_cancel.field_mail_activity__context_note
 msgid "Context note"
 msgstr ""
+
+#. module: prepress_proof_advanced_cancel
+#: code:addons/prepress_proof_advanced_cancel/models/prepress_proof.py:0
+#, python-format
+msgid ""
+"No planned activities has been detected,can not cancel Prepress proof [%s]"
+msgstr "Aucune activité d’annulation n'a été detecté,impossible d'annuler le BAT [%s]"
 
 #. module: prepress_proof_advanced_cancel
 #: model:ir.model.fields,field_description:prepress_proof_advanced_cancel.field_prepress_proof__cancel_activities_done
@@ -99,4 +112,5 @@ msgstr ""
 msgid ""
 "This is the number of all done activities including deleted/canceled ones"
 msgstr ""
-"Il s'agit du nombre de toutes les activités effectuées, y compris celles supprimées/annulées"
+"Il s'agit du nombre de toutes les activités effectuées, y compris celles "
+"supprimées/annulées"
