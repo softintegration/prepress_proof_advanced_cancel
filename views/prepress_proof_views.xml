@@ -8,7 +8,7 @@
           <field name="inherit_id" ref="prepress_management.view_prepress_proof_form"/>
           <field name="arch" type="xml">
                 <xpath expr="//button[@name='action_reset_from_quarantine']" position="after">
-                    <button name="action_start_cancel_with_motif" type="object" states="validated,flashed" string="Start cancel"
+                    <button name="action_start_cancel_with_motif" type="object" states="validated,flashed,quarantined" string="Start cancel"
                                 data-hotkey="a"/>
                 </xpath>
                 <xpath expr="//button[@name='action_cancel_with_motif']" position="attributes">
