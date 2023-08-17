@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-22 13:28+0000\n"
-"PO-Revision-Date: 2023-07-22 13:28+0000\n"
+"POT-Creation-Date: 2023-08-17 07:58+0000\n"
+"PO-Revision-Date: 2023-08-17 07:58+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -43,6 +43,12 @@ msgid "All cancel activities must be done!"
 msgstr "Toutes les activités d’annulation doivent être faites"
 
 #. module: prepress_proof_advanced_cancel
+#: code:addons/prepress_proof_advanced_cancel/models/mail_activity.py:0
+#, python-format
+msgid "Can not remove Cancel Prepress proof done activity!"
+msgstr "Impossible de supprimer une activité d'annulation terminée!"
+
+#. module: prepress_proof_advanced_cancel
 #: model:ir.model.fields,field_description:prepress_proof_advanced_cancel.field_prepress_proof__cancel_activities_count
 msgid "Cancel Activities Count"
 msgstr ""
@@ -60,11 +66,18 @@ msgid "Context note"
 msgstr ""
 
 #. module: prepress_proof_advanced_cancel
+#: model:ir.model.fields.selection,name:prepress_proof_advanced_cancel.selection__mail_activity__proof_cancel_state__done
+msgid "Done"
+msgstr "Terminée"
+
+#. module: prepress_proof_advanced_cancel
 #: code:addons/prepress_proof_advanced_cancel/models/prepress_proof.py:0
 #, python-format
 msgid ""
 "No planned activities has been detected,can not cancel Prepress proof [%s]"
-msgstr "Aucune activité d’annulation n'a été detecté,impossible d'annuler le BAT [%s]"
+msgstr ""
+"Aucune activité d’annulation n'a été detecté,impossible d'annuler le BAT "
+"[%s]"
 
 #. module: prepress_proof_advanced_cancel
 #: model:ir.model.fields,field_description:prepress_proof_advanced_cancel.field_prepress_proof__cancel_activities_done
@@ -88,6 +101,11 @@ msgid "Pending cancel Proofs"
 msgstr "BAT en cours d'annulation"
 
 #. module: prepress_proof_advanced_cancel
+#: model:ir.model.fields.selection,name:prepress_proof_advanced_cancel.selection__mail_activity__proof_cancel_state__planned
+msgid "Planned"
+msgstr "Planifiée"
+
+#. module: prepress_proof_advanced_cancel
 #: model:ir.model,name:prepress_proof_advanced_cancel.model_prepress_proof
 msgid "Prepress proof"
 msgstr "BAT"
@@ -98,6 +116,7 @@ msgid "Start cancel"
 msgstr "Lancer l'annulation"
 
 #. module: prepress_proof_advanced_cancel
+#: model:ir.model.fields,field_description:prepress_proof_advanced_cancel.field_mail_activity__proof_cancel_state
 #: model:ir.model.fields,field_description:prepress_proof_advanced_cancel.field_prepress_proof__state
 msgid "Status"
 msgstr "Statut"

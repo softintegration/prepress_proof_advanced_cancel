@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 
 from odoo import models, fields, api, _
-from .mail_activity import PROOF_CANCEL_ACTIVITY
+from .mail_activity import PROOF_CANCEL_ACTIVITY,PROOF_CANCEL_ACTIVITY_DONE
 from odoo.exceptions import UserError, ValidationError
 from random import randint
 
@@ -14,7 +14,14 @@ class PrepressProof(models.Model):
     cancel_activities_count = fields.Integer(compute='_compute_cancel_activities_count')
     cancel_activities_planned = fields.Integer(string='Number of planned cancel activities')
     cancel_activities_done = fields.Integer(string='Number of done cancel activities',
-                                            help='This is the number of all done activities including deleted/canceled ones')
+                                            help='This is the number of all done activities including deleted/canceled ones',
+                                            compute='_compute_cancel_activities_done')
+
+    @api.depends('activity_ids')
+    def _compute_cancel_activities_done(self):
+        for each in self:
+            each.cancel_activities_done = len(each.activity_ids.filtered(lambda act:act.context_note == PROOF_CANCEL_ACTIVITY_DONE))
+
 
 
     def action_cancel_with_motif(self):
@@ -43,10 +50,13 @@ class PrepressProof(models.Model):
         return self.env['mail.activity'].search(cancel_activities_domain)
 
     def _get_cancel_activities_domain(self):
-        return [('res_model', '=', 'prepress.proof'), ('res_id', '=', self.id),('context_note','=',PROOF_CANCEL_ACTIVITY)]
+        return [('res_model', '=', 'prepress.proof'),
+                ('res_id', '=', self.id),
+                ('context_note','ilike',PROOF_CANCEL_ACTIVITY+'%'),]
 
     def show_cancel_activities(self):
         self.ensure_one()
+        cancel_activities = self._get_cancel_activities().ids
         return {
             'name': _('Cancel activities'),
             'view_mode': 'tree',
@@ -58,7 +68,7 @@ class PrepressProof(models.Model):
                 'default_res_model_id': self.env['ir.model'].search([('model', '=', 'prepress.proof')], limit=1).id,
                 'default_res_id': self.id,
                 'default_context_note':PROOF_CANCEL_ACTIVITY},
-            'domain': [('id', 'in', self._get_cancel_activities().ids)]
+            'domain': [('id', 'in', cancel_activities)]
         }
 
     def action_start_cancel_with_motif(self):

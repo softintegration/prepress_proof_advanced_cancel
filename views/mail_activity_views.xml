@@ -8,10 +8,13 @@
             <field name="model">mail.activity</field>
             <field name="arch" type="xml">
                 <tree string="Cancel activities" editable="bottom">
-                    <field name="summary"/>
-                    <field name="note"/>
-                    <field name="date_deadline"/>
-                    <field name="user_id"/>
+                    <field name="summary" attrs="{'readonly':[('context_note','=','proof_cancel_activity_done')]}"/>
+                    <field name="note" attrs="{'readonly':[('context_note','=','proof_cancel_activity_done')]}"/>
+                    <field name="date_deadline" attrs="{'readonly':[('context_note','=','proof_cancel_activity_done')]}"/>
+                    <field name="user_id" attrs="{'readonly':[('context_note','=','proof_cancel_activity_done')]}"/>
+                    <field name="proof_cancel_state" readonly="1" decoration-warning="proof_cancel_state == 'planned'"
+                       decoration-success="proof_cancel_state == 'done'" widget="badge"/>
+                    <field name="context_note" invisible="1"/>
                 </tree>
             </field>
         </record>
